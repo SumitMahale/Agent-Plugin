@@ -1,0 +1,15 @@
+{
+  "name": "agent-plugin",
+  "description": "GitHub Copilot agent plugins by Sumit Mahale",
+  "owner": {
+    "name": "Sumit Mahale"
+  },
+  "plugins": [
+    {
+      "name": "architect-helper",
+      "source": "./plugins/architecture/architect-helper",
+      "description": "A manually invoked architecture planning agent for GitHub Copilot",
+      "version": "0.2.0"
+    }
+  ]
+}

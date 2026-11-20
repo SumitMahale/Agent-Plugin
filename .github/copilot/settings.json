@@ -1,0 +1,10 @@
+{
+  "extraKnownMarketplaces": {
+    "agent-plugin": {
+      "source": {
+        "source": "github",
+        "repo": "SumitMahale/Agent-Plugin"
+      }
+    }
+  }
+}
