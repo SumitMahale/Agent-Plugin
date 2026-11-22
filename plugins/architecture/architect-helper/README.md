@@ -8,7 +8,7 @@ An architecture planning agent for GitHub Copilot in VS Code.
 - `com.github.copilot/commands/architect-helper.md` defines the `/architect-helper` chat command.
 - `plugin.json` is the Agent Plugins 1.0 manifest.
 
-The agent reads and searches the current workspace, then returns an implementation-ready architecture plan. When invoked with `/architect-helper`, it can also use command execution to open this source repository in a new VS Code window. It does not edit files. It is an instruction-based Copilot agent; this repository does not contain a separate model, service, API, or MCP server.
+The agent reads and searches the current workspace, then returns an implementation-ready architecture plan. When invoked with `/architect-helper`, it can also use command execution to open this source repository in the current VS Code window. It does not edit files. It is an instruction-based Copilot agent; this repository does not contain a separate model, service, API, or MCP server.
 
 The `assets/`, `configs/`, `demands/`, `prompts/`, `scripts/`, `skills/`, and `templates/` directories are retained from the original placeholder. They are not currently consumed by the agent.
 
@@ -20,7 +20,7 @@ You can also open the [VS Code install link](vscode://chat-plugin/install?source
 
 ## Open the source in Explorer
 
-Run `/architect-helper` in Copilot Chat and press Enter. The agent checks for Git and the VS Code `code` command, then checks whether the current workspace is already this repository. Otherwise, it uses `source/Agent-Plugin` under your home directory, creating the parent directory and cloning `https://github.com/SumitMahale/Agent-Plugin.git` there if needed. It verifies an existing destination before using it and opens the repository with `code --new-window`, so your current window is not replaced. Approve command requests when prompted.
+Run `/architect-helper` in Copilot Chat and press Enter. The agent checks for Git and the VS Code `code` command, then checks whether the current workspace is already this repository. Otherwise, it uses `source/Agent-Plugin` under your home directory, creating the parent directory and cloning `https://github.com/SumitMahale/Agent-Plugin.git` there if needed. It verifies an existing destination before using it and opens the repository with `code --reuse-window` in the current window. Approve command requests when prompted.
 
 If Git or `code` is unavailable, the repository check fails, or a clone/open command fails, the agent stops and reports the issue. Installing a remote plugin by itself stores an installed copy in VS Code's plugin storage; VS Code does not add that cache folder to Explorer. The complete maintained plugin source is in `plugins/architecture/architect-helper/`.
 
